@@ -1,0 +1,33 @@
+Prerequisites
+
+ruby 1.9.3
+
+rails 3.2.1
+
+MySQL server (I am using 5.1)
+
+Steps to be followed
+
+1. run bundle install
+
+2. rake db:create (Please to changes in database.yml as per your configurations)
+
+3. rake db:migrate
+
+4. rake db:seed 
+
+4. Start the server (rails s)
+
+Visit URL: http://localhost:3000 (As per you server configuration, to get the serach form)
+
+OR 
+
+http://localhost:3000/tweets/search?query=ruby (This will also display results based on query parameter)
+
+Following ser logins are available -:
+
+user@testme.com
+password
+
+user1@testme.com
+password

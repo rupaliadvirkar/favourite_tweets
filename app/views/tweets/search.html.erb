@@ -1,0 +1,38 @@
+<br/>
+<div align="center">
+    <%=form_tag search_tweets_path(), :method => :get do %>
+    <%=search_field_tag :query, value = params[:query], :size=> 40 %>
+    <%=submit_tag "Search", :disable_with => "Searching......." %>
+    <%end %>
+</div>
+<%if @tweets and !@tweets.empty? %>
+	<h1>Results for <%=params[:query] %></h1>
+	<div>
+    	<ul>
+        	<%=form_tag (save_favourites_tweets_path()) do %>
+		      <% @tweets.each do |tweet| %>
+			     <li>
+			        <%if current_user %>
+				        <%= check_box_tag "tweets_to_be_added[]", tweet %>
+			        <%end %>
+			        <%= link_to tweet[:from_user], "http://twitter.com/#{tweet[:from_user]}", {:target => "_blank"} %>
+			        </br>
+			        <%=raw display_content_with_links(tweet[:text]) %>
+			        </br>
+			        <%= time_ago_in_words tweet[:twitter_created_at] %> ago
+		         </li>
+	 	     <%end %>
+			 <br/>
+			 <br/>
+			 <%=hidden_field_tag :query, params[:query]%>
+	         <%if current_user %>
+		        <%= submit_tag "Add to favourite" %>
+	         <%end %>
+          <% end %>
+      </ul>
+    </div>
+<%else %>
+	<%if !params[:query].blank? %>
+		<h1>No reults found.</h1>
+	<%end %>
+<%end %>

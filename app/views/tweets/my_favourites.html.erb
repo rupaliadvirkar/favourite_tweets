@@ -1,0 +1,23 @@
+<h1>Favourite Tweets</h1>
+<div>
+    <ul>
+    	<%if !@tweets.empty?%>
+        <% @tweets.each do |tweet| %>
+        <li>
+            <%= link_to tweet.from_user, "http://twitter.com/#{tweet.from_user}", :target => "_blank" %>
+            <div>
+                <div>
+                    <%=raw display_content_with_links(tweet[:text]) %>
+                </div>
+                <div>
+                    <%= time_ago_in_words tweet.twitter_created_at %> ago
+                </div>
+            </div>
+        </li>
+        <% end %>
+		<%else%>
+			<h2>No favourite Tweets.</h2>
+		<%end%>
+    </ul>
+</div>
+<%=link_to "Back", search_tweets_path(:query =>params[:query])%>

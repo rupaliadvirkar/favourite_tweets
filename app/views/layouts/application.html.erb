@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @page_title %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div style="float:right">
+<%if current_user%>
+	<%=link_to "My Favourites", my_favourites_tweets_path(:query => params[:query])%>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<%=link_to "logout", '/logout'%>
+<%else%>
+	<%if params[:query]%>	
+		<%=link_to "login (To mark as favourite)", "/login?query=#{params[:query]}"%>
+	<%else%>	
+		<%=link_to "login (To mark as favourite)", '/login'%>
+	<%end%>
+<%end%>	
+</div>
+<%= yield %>
+
+</body>
+</html>
