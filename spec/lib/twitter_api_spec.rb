@@ -16,7 +16,7 @@ describe TwitterApi do
   		@results.length.should > 0
   	end
     
-    it "should parse the results and provide array of hash of search result object" do
+    it "should parse the results from twitter and provide array of hash of search result object" do
     	parsed_results = @dummy.parse_searched_result(@results)
     	parsed_results.length.should > 0
     	parsed_results[0][:twitter_created_at].should_not be_nil
