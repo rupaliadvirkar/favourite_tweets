@@ -6,7 +6,7 @@ module TwitterApi
   #Then will connect to twitter and will search the given text and return responce.
   def twitter_search(query_string,results_per_page)
     obj_search = Twitter::Client.new()
-    searched_results = obj_search.search(query_string, :results_per_page => 100, :result_type => "mixed").results
+    searched_results = obj_search.search(query_string, :rpp => results_per_page, :result_type => "mixed").results
     searched_results
   end
   
