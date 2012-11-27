@@ -7,7 +7,7 @@ development:
     pool: 5
     timeout: 5000
 
-test:
+test: &test
     adapter: mysql
     host: localhost
     database: test_favourite_tweets
@@ -24,3 +24,5 @@ production:
     password: password
     pool: 5
     timeout: 5000
+cucumber:
+  <<: *test

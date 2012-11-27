@@ -41,6 +41,8 @@ gem 'twitter'
 
 gem "rspec-rails", ">= 2.9.0.rc2", :group => [:development, :test]
 
+gem "factory_girl", :group => [:development, :test]
+
 gem "factory_girl_rails", ">= 3.1.0", :group => [:development, :test]
 
 gem "database_cleaner", ">= 0.7.2", :group => :test
@@ -48,3 +50,11 @@ gem "database_cleaner", ">= 0.7.2", :group => :test
 gem "devise", ">= 2.1.0.rc"
 
 gem 'webrat'
+
+gem 'therubyracer'
+
+gem 'cucumber', :group => :test
+
+gem "cucumber-rails", :group => :test
+
+gem 'capybara', :group => :test
